@@ -21,8 +21,6 @@ The intersection of ancient wisdom and present experience.
 
 ---
 
-Not teaching. Just sharing.
-
 The path unfolds as we walk it.
 
 *May all beings be well.*
