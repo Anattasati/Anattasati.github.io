@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hello World"
-date: 2024-07-13
+date: 2025-07-13 04:48:48 +0000
 categories: meditation
 ---
 
@@ -26,4 +26,3 @@ Not teaching. Just sharing.
 The path unfolds as we walk it.
 
 *May all beings be well.*
-
