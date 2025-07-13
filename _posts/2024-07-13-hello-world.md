@@ -1,0 +1,29 @@
+---
+layout: post
+title: "Hello World"
+date: 2024-07-13
+categories: meditation
+---
+
+*Anattā* - no fixed self.
+
+*Sati* - present awareness.
+
+Together: *anattasati* - mindful attention to what is, without the story of me.
+
+---
+
+This space holds:
+
+Moments from sitting.  
+Questions without answers.  
+The intersection of ancient wisdom and present experience.
+
+---
+
+Not teaching. Just sharing.
+
+The path unfolds as we walk it.
+
+*May all beings be well.*
+
