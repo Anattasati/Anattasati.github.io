@@ -9,15 +9,15 @@ categories: meditation
 
 *Sati* - present awareness.
 
-Together: *anattasati* - mindful attention to what is, without the story of me.
+Together: *anattasati* - mindful attention to what is and the truth of emptiness, that is, the absence of a permenant and independent self
 
 ---
 
 This space holds:
 
-Moments from sitting.  
-Questions without answers.  
-The intersection of ancient wisdom and present experience.
+Contemplations and moments from sitting.
+
+Wisdom discovered along the way.
 
 ---
 
