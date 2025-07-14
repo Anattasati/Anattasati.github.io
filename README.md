@@ -1,5 +1,8 @@
 # Anattasati's Jekyll Website
 
+![Build & Deploy](https://github.com/Anattasati/Anattasati.github.io/actions/workflows/jekyll.yml/badge.svg)
+![Security Audit](https://github.com/Anattasati/Anattasati.github.io/actions/workflows/security.yml/badge.svg)
+
 This is a Jekyll-powered website hosted on GitHub Pages.
 
 ## Local Development
