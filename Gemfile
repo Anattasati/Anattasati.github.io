@@ -22,4 +22,4 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 # Explicitly add a compatible version of sass-embedded for GitHub Pages (Ruby 3.1.x)
-gem "sass-embedded", "~> 1.58"
+gem "sass-embedded", "~> 1.90"
