@@ -29,7 +29,7 @@ This is a Jekyll-powered website hosted on GitHub Pages.
    ```
 
 3. **View your site:**
-   Open your browser and go to `http://localhost:4001`
+   Open your browser and go to `http://localhost:4000`
 
 ### Available Commands
 
