@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ site.description }}">
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  
+  <!-- Preload fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  
+  <!-- Feed -->
+  {% feed_meta %}
+</head>
+<body>
+  
+  <!-- Persistent wave layer - never reloads -->
+  <div id="wave-layer" class="wave-layer">
+    <canvas id="wave-canvas"></canvas>
+  </div>
+  
+  <!-- Barba.js wrapper for page transitions -->
+  <div data-barba="wrapper">
+    <main data-barba="container" data-barba-namespace="{{ page.layout }}">
+      {{ content }}
+    </main>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+  
+  <!-- Core Scripts -->
+  <script src="{{ '/assets/js/wave.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/presence.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/transitions.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/app.js' | relative_url }}"></script>
+</body>
+</html>

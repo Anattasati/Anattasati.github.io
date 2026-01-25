@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+<div class="void" id="void">
+  <!-- Navigation words - fade in after presence detected -->
+  <nav class="void-nav" id="void-nav" aria-label="Main navigation">
+    {% if page.collection == 'sections' %}
+      <!-- Section page: show posts in this category -->
+      {% assign section_name = page.slug %}
+      {% assign section_posts = site.posts | where_exp: "post", "post.categories contains section_name" %}
+      
+      {% if section_posts.size > 0 %}
+        {% for post in section_posts %}
+          <a href="{{ post.url | relative_url }}" class="void-word" data-transition="reading">
+            {{ post.title }}
+          </a>
+        {% endfor %}
+      {% else %}
+        <span class="void-word void-word--empty">emptiness</span>
+      {% endif %}
+      
+    {% elsif page.nav_items %}
+      <!-- Manual navigation items -->
+      {% for item in page.nav_items %}
+        <a href="{{ item.url | relative_url }}" class="void-word">
+          {{ item.title }}
+        </a>
+      {% endfor %}
+      
+    {% else %}
+      <!-- Main site navigation (homepage) -->
+      {% for section in site.sections_nav %}
+        <a href="{{ section.url | relative_url }}" class="void-word">
+          {{ section.name }}
+        </a>
+      {% endfor %}
+    {% endif %}
+  </nav>
+  
+  <!-- Home link (appears when not on home) -->
+  {% if page.url != "/" %}
+    <a href="{{ '/' | relative_url }}" class="void-home" id="void-home" aria-label="Return home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+      </svg>
+    </a>
+  {% endif %}
+</div>

@@ -2,7 +2,11 @@
 
 # Jekyll development script
 
-export PATH="$PATH:/home/codespace/.local/share/gem/ruby/3.4.0/bin"
+# Initialize rbenv if available
+if [ -d "$HOME/.rbenv" ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
 
 case "$1" in
   "serve"|"s")

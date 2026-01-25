@@ -1,30 +1,61 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
+# Anattasati.org - A contemplative space
+# Minimal configuration for the void experience
 
 # Site settings
-title: Anattasati.org
+title: Anattasati
 author: QL
-description: >- # this means to ignore newlines until "baseurl:"
+description: >-
   Reflections on meditation, Buddhist philosophy, and the nature of experience.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://anattasati.org" # the base hostname & protocol for your site
-github_username: Anattasati
-
-# Social links (set to empty to hide)
-email: ""
-twitter_username: ""
+baseurl: ""
+url: "https://anattasati.org"
 
 # Build settings
 markdown: kramdown
-theme: minima
+permalink: /:categories/:title/
+
+# No theme - custom void experience
+# theme: minima  # Removed
+
 plugins:
   - jekyll-feed
 
-# Exclude from processing.
+# Collections for sections
+collections:
+  sections:
+    output: true
+    permalink: /:name/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "reading"
+  - scope:
+      path: ""
+      type: "sections"
+    values:
+      layout: "void"
+  - scope:
+      path: ""
+    values:
+      layout: "void"
+
+# Sections for navigation (faint words)
+sections_nav:
+  - name: "Satipathana"
+    url: "/satipathana/"
+  - name: "Anapanasati"
+    url: "/anapanasati/"
+  - name: "Reflections"
+    url: "/reflections/"
+  - name: "Dharma"
+    url: "/dharma/"
+  - name: "Meditations"
+    url: "/meditations/"
+
+# Exclude from processing
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -33,3 +64,5 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - README.md
+  - jekyll.sh

@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<article class="reading" id="reading">
+  <!-- Back to void button -->
+  <a href="javascript:history.back()" class="reading-close" id="reading-close" aria-label="Return to void" data-transition="void">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </a>
+  
+  <!-- Reading content -->
+  <div class="reading-content" id="reading-content">
+    <div class="reading-body">
+      {{ content }}
+    </div>
+    
+    <!-- End of reading indicator -->
+    <div class="reading-end">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <circle cx="12" cy="12" r="3"/>
+      </svg>
+    </div>
+  </div>
+</article>

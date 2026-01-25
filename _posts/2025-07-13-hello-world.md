@@ -1,8 +1,8 @@
 ---
-layout: post
+layout: reading
 title: "Hello World"
 date: 2025-07-13 04:48:48 +0000
-categories: meditation
+categories: reflections
 ---
 
 *Anattā* - no fixed self.
