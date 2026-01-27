@@ -53,20 +53,41 @@ You can use the `jekyll.sh` script for common tasks:
 
 ### Writing Posts
 
-Create new blog posts in the `_posts` directory with the filename format:
+Posts are automatically organized by category! Create new posts in the `_posts` directory with the filename format:
 `YYYY-MM-DD-title.md`
 
-Example:
+**How Post Organization Works:**
+
+1. **Filename**: Use format `YYYY-MM-DD-title.md` (e.g., `2025-07-13-calm-ease.md`)
+2. **Front Matter**: Include the `categories` field to automatically place your post in the correct section
+3. **Automatic Routing**: Jekyll automatically creates URLs as `/:categories/:title/`
+
+**Available Categories (Sections):**
+- `reflections` - Contemplations and moments from sitting
+- `meditations` - Meditation practices and guidance  
+- `dharma` - Buddhist teachings and wisdom
+- `satipatthana` - Four Foundations of Mindfulness
+- `anapanasati` - Mindfulness of Breathing
+
+**Example Post:**
 ```markdown
 ---
-layout: post
-title: "My New Post"
-date: 2024-07-13 10:00:00 +0000
-categories: jekyll update
+layout: reading
+title: "My New Meditation"
+date: 2025-07-13 10:00:00 +0000
+categories: meditations
 ---
 
 Your post content goes here...
 ```
+
+This post will:
+- Automatically appear in the "Meditations" section at `/meditations/`
+- Be accessible at `/meditations/my-new-meditation/`
+- Show up in the navigation when viewing the Meditations section
+
+**Multiple Categories:**
+You can assign multiple categories (e.g., `categories: dharma reflections`), and the post will appear in the first category's section, with the URL reflecting all categories.
 
 ### Customization
 
