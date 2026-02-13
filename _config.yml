@@ -44,14 +44,8 @@ defaults:
 
 # Sections for navigation (faint words)
 sections_nav:
-  - name: "Satipaṭṭhāna"
-    url: "/satipatthana/"
-  - name: "Ānāpānasati"
-    url: "/anapanasati/"
   - name: "Reflections"
     url: "/reflections/"
-  - name: "Dharma"
-    url: "/dharma/"
   - name: "Meditations"
     url: "/meditations/"
 
