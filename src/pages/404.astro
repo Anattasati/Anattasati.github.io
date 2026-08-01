@@ -1,0 +1,26 @@
+---
+import VoidLayout from "../layouts/VoidLayout.astro";
+---
+
+<VoidLayout
+  title="Page not found"
+  description="This page is no longer here."
+  canonicalPath="/404.html"
+  robots="noindex"
+  variant="error"
+>
+  <section class="error-state" aria-labelledby="error-title">
+    <p class="eyebrow">
+      <span>404</span>
+      <span>Not found</span>
+    </p>
+    <h1 id="error-title">Nothing remains here.</h1>
+    <p>The page may have moved, changed, or passed away.</p>
+    <a class="text-link" href="/">
+      Return to the beginning
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <path d="M5 12h14m-5-5 5 5-5 5" />
+      </svg>
+    </a>
+  </section>
+</VoidLayout>

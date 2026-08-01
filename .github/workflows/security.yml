@@ -1,26 +1,33 @@
-name: Security Audit
+name: Dependency security audit
 
 permissions:
   contents: read
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
+  pull_request:
+    branches: [main]
   schedule:
-    - cron: '0 0 * * 0' # weekly
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
 
 jobs:
-  bundler-audit:
+  npm-audit:
+    name: Audit npm dependencies
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
         with:
-          ruby-version: '3.2.3'
-      - name: Install dependencies
-        run: |
-          gem install bundler-audit
-          bundle install
-      - name: Run bundler-audit
-        run: bundler-audit check --update
+          node-version: 24
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=high

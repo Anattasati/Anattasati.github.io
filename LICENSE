@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2025 QL
+Copyright (c) 2025–2026 QL
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,8 +24,8 @@ SOFTWARE.
 
 Content License
 
-All written content, posts, and original text in the _posts/ and _sections/
-directories are licensed under the Creative Commons
+All written content, posts, and original text in the src/content/posts/
+directory are licensed under the Creative Commons
 Attribution-NonCommercial-NoDerivatives 4.0 International License.
 
 You may share this content with attribution, but you may not modify it or use
@@ -33,4 +33,4 @@ it for commercial purposes.
 
 Full license text: https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
 
-Copyright (c) 2025 QL
+Copyright (c) 2025–2026 QL

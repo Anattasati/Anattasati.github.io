@@ -1,0 +1,64 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  currentSection?: "reflections" | "meditations";
+  canonicalPath?: string;
+  robots?: string;
+  variant?: "home" | "section" | "error";
+}
+
+const {
+  title = "Anattasati",
+  description,
+  currentSection,
+  canonicalPath,
+  robots,
+  variant = "section",
+} = Astro.props;
+
+const navigation = [
+  { label: "Reflections", href: "/reflections/", id: "reflections" },
+  { label: "Meditations", href: "/meditations/", id: "meditations" },
+] as const;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  surface="void"
+  canonicalPath={canonicalPath}
+  robots={robots}
+>
+  <div class:list={["void-shell", `void-shell--${variant}`]}>
+    <header class="void-masthead">
+      <a class="wordmark" href="/" aria-label="Anattasati, home">
+        <span class="site-mark" aria-hidden="true"><span></span></span>
+        <span class="wordmark__text">Anattasati</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary navigation">
+        {navigation.map((item) => (
+          <a
+            href={item.href}
+            aria-current={currentSection === item.id ? "page" : undefined}
+            data-luminous-target={item.id}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </header>
+
+    <main id="main-content" transition:name="page-content" transition:animate="fade">
+      <slot />
+    </main>
+
+    <footer class="void-footer">
+      <span>A quiet field for noticing.</span>
+      <span aria-label="Anatta, Sati">anattā / sati</span>
+    </footer>
+  </div>
+</BaseLayout>

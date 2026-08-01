@@ -1,0 +1,33 @@
+---
+import ObservationIndex from "../../components/ObservationIndex.astro";
+import VoidLayout from "../../layouts/VoidLayout.astro";
+import { getPostsByCategory } from "../../lib/content";
+
+const posts = await getPostsByCategory("reflections");
+const description = "Notes on perception, emptiness, and the ordinary mystery of experience.";
+---
+
+<VoidLayout
+  title="Reflections"
+  description={description}
+  currentSection="reflections"
+  canonicalPath="/reflections/"
+  variant="section"
+>
+  <section class="section-index" aria-labelledby="section-title">
+    <header class="section-header">
+      <p class="eyebrow">
+        <span>01</span>
+        <span>Observation index</span>
+      </p>
+      <h1 id="section-title">Reflections</h1>
+      <p class="section-description">{description}</p>
+      <p class="section-count">
+        <span>{String(posts.length).padStart(2, "0")}</span>
+        {posts.length === 1 ? "entry" : "entries"}
+      </p>
+    </header>
+
+    <ObservationIndex posts={posts} emptyLabel="The first reflection has yet to arise." />
+  </section>
+</VoidLayout>

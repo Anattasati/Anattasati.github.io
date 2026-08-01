@@ -1,0 +1,64 @@
+---
+import { ClientRouter } from "astro:transitions";
+import LuminousField from "../components/LuminousField.astro";
+import "../styles/fonts.css";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  surface?: "void" | "reading";
+  canonicalPath?: string;
+  robots?: string;
+}
+
+const {
+  title = "Anattasati",
+  description = "Reflections on meditation, Buddhist philosophy, and the nature of experience.",
+  surface = "void",
+  canonicalPath = Astro.url.pathname,
+  robots,
+} = Astro.props;
+
+const siteName = "Anattasati";
+const documentTitle = title === siteName ? siteName : `${title} · ${siteName}`;
+const canonicalUrl = Astro.site ? new URL(canonicalPath, Astro.site) : undefined;
+const themeColor = surface === "reading" ? "#ecebe5" : "#08090a";
+---
+
+<!doctype html>
+<html lang="en" data-surface={surface} data-page-mode={surface}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content={themeColor} />
+    <meta name="color-scheme" content={surface === "reading" ? "light" : "dark"} />
+    {robots && <meta name="robots" content={robots} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={documentTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl?.toString() ?? Astro.url.href} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={documentTitle} />
+    <meta name="twitter:description" content={description} />
+    <title>{documentTitle}</title>
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Anattasati"
+      href="/feed.xml"
+    />
+    <ClientRouter />
+    <slot name="head" />
+  </head>
+  <body data-surface={surface}>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <LuminousField mode={surface} />
+    <slot />
+  </body>
+</html>

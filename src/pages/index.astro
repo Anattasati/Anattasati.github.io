@@ -1,0 +1,45 @@
+---
+import VoidLayout from "../layouts/VoidLayout.astro";
+---
+
+<VoidLayout variant="home">
+  <section class="home-intro" aria-labelledby="home-title">
+    <p class="eyebrow home-eyebrow">
+      <span>00</span>
+      <span>Contemplative field</span>
+    </p>
+
+    <h1 id="home-title" class="home-title">
+      <span>Attend to</span>
+      <em>what is.</em>
+    </h1>
+
+    <p class="home-lede">
+      Reflections on meditation, perception, and the nature of experience.
+    </p>
+
+    <nav class="threshold-nav" aria-label="Explore Anattasati">
+      <a href="/reflections/" class="threshold-link" data-luminous-target="reflections">
+        <span class="threshold-link__number" aria-hidden="true">01</span>
+        <span class="threshold-link__copy">
+          <strong>Reflections</strong>
+          <span>Notes on seeing clearly</span>
+        </span>
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M5 12h14m-5-5 5 5-5 5" />
+        </svg>
+      </a>
+
+      <a href="/meditations/" class="threshold-link" data-luminous-target="meditations">
+        <span class="threshold-link__number" aria-hidden="true">02</span>
+        <span class="threshold-link__copy">
+          <strong>Meditations</strong>
+          <span>Practices for returning</span>
+        </span>
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M5 12h14m-5-5 5 5-5 5" />
+        </svg>
+      </a>
+    </nav>
+  </section>
+</VoidLayout>
