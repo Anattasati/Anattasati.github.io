@@ -14,8 +14,16 @@ const { posts, emptyLabel = "No observations yet." } = Astro.props;
   posts.length > 0 ? (
     <ol class="observation-list">
       {posts.map((post, index) => {
-        const number = String(index + 1).padStart(2, "0");
+        const number = String(posts.length - index).padStart(2, "0");
         const dateLabel = formatPostDate(post.data.date);
+        const displayDate = new Intl.DateTimeFormat("en-GB", {
+          day: "2-digit",
+          month: "short",
+          timeZone: "UTC",
+          year: "numeric",
+        })
+          .format(post.data.date)
+          .toUpperCase();
 
         return (
           <li>
@@ -27,7 +35,7 @@ const { posts, emptyLabel = "No observations yet." } = Astro.props;
               <span class="observation-number" aria-hidden="true">{number}</span>
               <span class="observation-title">{post.data.title}</span>
               <time datetime={post.data.date.toISOString()}>
-                <span aria-hidden="true">{post.data.date.getUTCFullYear()}</span>
+                <span aria-hidden="true">{displayDate}</span>
                 <span class="sr-only">{dateLabel}</span>
               </time>
               <svg class="observation-arrow" aria-hidden="true" viewBox="0 0 24 24">
@@ -42,3 +50,19 @@ const { posts, emptyLabel = "No observations yet." } = Astro.props;
     <p class="observation-empty">{emptyLabel}</p>
   )
 }
+
+<style>
+  .observation-link {
+    grid-template-columns: 2.6rem 1fr 6.75rem 1.2rem;
+  }
+
+  .observation-link time {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 640px) {
+    .observation-link {
+      grid-template-columns: 1.7rem 1fr auto;
+    }
+  }
+</style>
