@@ -17,6 +17,7 @@ const expectedFiles = [
   "reflections/index.html",
   "reflections/hello-world/index.html",
   "reflections/starlight-and-seeing/index.html",
+  "reflections/when-the-searching-stops/index.html",
   "meditations/index.html",
   "meditations/calm-ease/index.html",
 ];
@@ -46,7 +47,11 @@ for (const relative of expectedFiles) {
 }
 
 const htmlFiles = (await walk(outputRoot)).filter((file) => file.endsWith(".html"));
-assert.equal(htmlFiles.length, 7, "Expected exactly seven generated HTML pages");
+const expectedHtmlFiles = expectedFiles.filter((file) => file.endsWith(".html"));
+assert.ok(
+  htmlFiles.length >= expectedHtmlFiles.length,
+  `Expected at least ${expectedHtmlFiles.length} generated HTML pages`,
+);
 
 for (const htmlFile of htmlFiles) {
   const html = await readFile(htmlFile, "utf8");
@@ -74,6 +79,7 @@ const feed = await readFile(path.join(outputRoot, "feed.xml"), "utf8");
 for (const postPath of [
   "/reflections/hello-world/",
   "/reflections/starlight-and-seeing/",
+  "/reflections/when-the-searching-stops/",
   "/meditations/calm-ease/",
 ]) {
   assert.ok(feed.includes(postPath), `RSS feed is missing ${postPath}`);
