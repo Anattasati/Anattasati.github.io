@@ -23,6 +23,9 @@
     "@astrojs/check": "^0.9.10",
     "typescript": "^6.0.3"
   },
+  "overrides": {
+    "nanoid": "^3.3.17"
+  },
   "engines": {
     "node": ">=22.12.0"
   }
